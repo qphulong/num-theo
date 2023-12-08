@@ -1,8 +1,19 @@
-1) Summation over Divisor
+1) Summation over Divisor ( note bằng tiếng việt nha Sry :(()
+Note: n=Mul(p_i^e^i) (i từ 1->r)
+Tính các hàm:
+	1. 1(n) = 1 
+	2. I(n) = 1 if n=1; I(n) = 0 if n>1
+	3. Mobius(n) = 0 if exists i >= 2 ; (-1)^r otherwise
+Áp dụng:
+	1. hàm tổng các ước nguyên dương của n (brute force suggested)
+	2. Factorize integer : 4.1 có
 
-2) Quadratic Residues and Square Root
+
+2) Quadratic Residues and Square Root:
+
 
 3) Chapter 5
+Sàng nguyên tố eratosthenes - tìm tất cả các số nguyên tố <= n
 
 4) Applications
 	Side functions:
