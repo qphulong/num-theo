@@ -10,7 +10,15 @@ Tính các hàm:
 
 
 2) Quadratic Residues and Square Root:
-
+Square root of -1:
+Idea:
+	Repeat:
+		choose a in Z*p
+		calculate b = a^(p-1)/4
+	check if b^2 = -1 then output b
+	else: repeat the algorithm
+Using Euclidean algorithm to calculate:\
+base on square root of -1, for prime p: find a and b: p=a^2+b^2
 
 3) Chapter 5
 Sàng nguyên tố eratosthenes - tìm tất cả các số nguyên tố <= n
