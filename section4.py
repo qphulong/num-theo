@@ -1,3 +1,7 @@
+import math
+import sys
+from section2 import extended_euclidean
+
 def repeated_squaring_to_calculate_pow(a,e):
     result = 1
 
@@ -90,7 +94,42 @@ def QR_problem(n, B):
         
     return True
 
+# RSA
+# define e = 65537
+e = 65537
 
+# p, q are very large prime numbers
+def gen_pq():
+    return 9967, 9973
         
+def carmichael(p, q):
+    return math.lcm(p - 1, q - 1)
 
 
+def find_d(lambda_n):
+    '''Given e and c = carmichael(p, q), find d such that ed = 1 (mod c)'''
+    return extended_euclidean(e, lambda_n)[1] % lambda_n
+
+def RSA():
+    p, q = gen_pq()
+    n = p * q
+    d = find_d(carmichael(p, q))
+    return (e, n), d
+
+def encrypt(plain_text, public_key):
+    m = int.from_bytes(plain_text.encode(), 'little')
+    print(m)
+    return pow(m, public_key[0], public_key[1])
+
+def decrypt(cipher_text, public_key, private_key):
+    m = pow(cipher_text, private_key, public_key[1])
+    print(m)
+    return m.to_bytes(math.ceil(m.bit_length() / 8), 'little').decode()
+
+sys.set_int_max_str_digits(0)
+# public_key, private_key = RSA()
+# print(public_key, private_key)
+# cipher_text = encrypt('ế', public_key)
+# print(cipher_text)
+# plain_text = decrypt(cipher_text, public_key, private_key)
+# print(plain_text)
