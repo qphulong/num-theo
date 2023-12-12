@@ -2,7 +2,7 @@ import math
 import sys
 from section2 import extended_euclidean
 
-def repeated_squaring_to_calculate_pow(a,e):
+def repeated_squaring_to_calculate_pow(a,e, mod = None):
     result = 1
 
     # Convert the exponent to its binary representation
@@ -13,6 +13,8 @@ def repeated_squaring_to_calculate_pow(a,e):
 
         if bit == "1":
             result = result * a
+        if mod is not None:
+            result = result % mod
     return result
 
 def factorize(n):
@@ -43,10 +45,12 @@ def factorize(n):
 def legendre_symbol(a, p):
     if a % p == 0:
         return 0
-    if repeated_squaring_to_calculate_pow(a,(p - 1) // 2 ) % p == 1:
+    if repeated_squaring_to_calculate_pow(a,(p - 1) // 2, p) == 1:
         return 1
     else:
         return -1
+    
+print(legendre_symbol(873, 673))
 
 def jacobi_symbol(a, n):
     result = 1
@@ -58,12 +62,11 @@ def jacobi_symbol(a, n):
             else:
                 return 0
         
-        a0 = 0 
+        a0 = a 
         h = 0
         while a0 % 2 == 0:
-            a0 = a // repeated_squaring_to_calculate_pow(2, h)
+            a0 //= 2
             h += 1
-        h -= 1
         
         if h % 2 != 0 and n % 8 not in (1,7):
             result *= -1
@@ -74,6 +77,7 @@ def jacobi_symbol(a, n):
     
     return result
 
+print (jacobi_symbol(873, 2019))
 
 def quandratic_residuosity_test(a, n):
     if jacobi_symbol(a,n) == -1:
@@ -81,7 +85,7 @@ def quandratic_residuosity_test(a, n):
     factors = factorize(n)
 
     for factor, order in factors:
-        if order % 2 == 0 and legendre_symbol(a, factor) == -1:
+        if order % 2 == 1 and legendre_symbol(a, factor) == -1:
             return False
     return True
 
@@ -89,7 +93,7 @@ def QR_problem(n, B):
     factors = factorize(n)
 
     for factor, order in factors:
-        if legendre_symbol(B, factors) == -1:
+        if legendre_symbol(B, factor) == -1:
             return False
         
     return True

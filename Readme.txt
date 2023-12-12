@@ -59,7 +59,6 @@ Sàng nguyên tố eratosthenes - tìm tất cả các số nguyên tố <= n
 				return true
 			Note: 
 				Factorize and Legendre may cost A LOT of time when p, q are big
-				Factorize can be implement by binary search for this case as the number of factors is only 2
 	RSA: 
 		generate 2 big prime p, q, let n = pq. Choose e > 1, gcd(e, phi(n) = (p - 1)(q - 1)) = 1, tuple (n, e) is public key
 		d = e^-1 mod phi(n) is private key
