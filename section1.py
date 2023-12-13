@@ -49,4 +49,3 @@ def check(b,m):
         if CONGRUENCE(i*i,b,m):
             return i
     return True
-print(check(492,2023*2023*2023))
