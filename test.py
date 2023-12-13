@@ -53,10 +53,12 @@ def extended_euclidean(a, b):
     r0, r1 = a,b
     s0, s1= 1,0
     t0, t1= 0,1
+    print(r0," ", s0,t0)
     while r1!= 0:
         q = r0 // r1
         r2 = r0 % r1
         r0,s0,t0,r1,s1,t1 = r1,s1,t1,r2,s0-s1*q,t0-t1*q
+        print(r0,q, s0,t0)
     d0 = r0
     return d0,s0,t0
 #a
@@ -82,7 +84,13 @@ print (modularInverse(37*37,2023*2023))
 
 
 #L5
+def find(a,n,b,f):
+    k = extended_euclidean(2*b*pow(n,f),pow(n,f+1))
+    #k = modularInverse(2*b*pow(n,f),pow(n,f+1))*(a-pow(n,f))
+    return k
 
+print("a")
+print(find(492,2023,233593,2))
 
 #L9
 def find_x(base, target, modulus):
