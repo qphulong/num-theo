@@ -137,3 +137,11 @@ sys.set_int_max_str_digits(0)
 # print(cipher_text)
 # plain_text = decrypt(cipher_text, public_key, private_key)
 # print(plain_text)
+
+print(jacobi_symbol(1983,2027))
+print(legendre_symbol(1983,2027))
+print(jacobi_symbol(873,2029))
+print(legendre_symbol(873,2029))
+print(jacobi_symbol(474993,1003001))
+print(legendre_symbol(474993,1003001))
+
