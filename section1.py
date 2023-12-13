@@ -33,3 +33,20 @@ def mobius(n: int) -> int:
         count += 1
     return 1 if count % 2 == 0 else -1
     
+def modularInverse(a, m):
+    for i in range(1, m):
+        if (a * i) % m == 1:
+            return i
+    return None
+print (modularInverse(37*37,2023*2023)) 
+def CONGRUENCE(a,b,m):
+    if (a-b)%m==0:
+        return True
+    else:
+        return False
+def check(b,m):
+    for i in range(1,m):
+        if CONGRUENCE(i*i,b,m):
+            return i
+    return True
+print(check(492,2023*2023*2023))

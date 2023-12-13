@@ -35,6 +35,7 @@ def extended_euclidean(a, b):
     d0 = r0
     return d0,s0,t0
 
+print (extended_euclidean(12345675, 567895))
 # print (extended_euclidean(1009, 469))
 
 

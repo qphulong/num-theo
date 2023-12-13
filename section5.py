@@ -38,3 +38,6 @@ def noneffectiveFermat(p):
     return None
 
 print(noneffectiveFermat(252497801))
+a=[41,152,263]
+n=[23,81,127]
+print(chinesesRemainder(a,n))
