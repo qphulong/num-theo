@@ -1,3 +1,6 @@
+from section2 import extended_euclidean
+
+from math import sqrt
 
 def modularSquareRoot(a, p):
     for i in range(1, p):
@@ -5,7 +8,7 @@ def modularSquareRoot(a, p):
             return i
     return None
 
-print(modularSquareRoot(448, 2019**2))
+#print(modularSquareRoot(448, 2019**2))
 
 def chinesesRemainder(n, a):
     sum = 0
@@ -24,3 +27,14 @@ def modularInverse(a, m):
         if (a * i) % m == 1:
             return i
     return None
+
+print(pow(9, 9**9, 1001))
+
+def noneffectiveFermat(p):
+    for i in range (1, int(sqrt(p))):
+        q = sqrt(p - pow(i, 2))
+        if q == int(q):
+            return i, int(q)
+    return None
+
+print(noneffectiveFermat(252497801))
